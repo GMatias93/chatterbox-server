@@ -11,6 +11,12 @@ this file and include it in basic-server.js so that it actually works.
 *Hint* Check out the node module documentation at http://nodejs.org/api/modules.html.
 
 **************************************************************/
+//server/server/request-handler.js is a nearly-empty file where you'll do your work.
+//here is a change
+
+var _ = require('../node_modules/underscore');
+
+console.log(_);
 
 var requestHandler = function(request, response) {
   // Request and Response come from node's http module.
