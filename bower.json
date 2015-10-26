@@ -1,0 +1,25 @@
+{
+  "name": "chatterbox",
+  "description": "file",
+  "main": "server/basic-server.js",
+  "authors": [
+    "Aheri and Gabriel"
+  ],
+  "license": "Copyright 2015 Telegraph Academy",
+  "keywords": [
+    "client",
+    "chatterbox"
+  ],
+  "homepage": "https://github.com/GMatias93/2015-10-chatterbox-server",
+  "moduleType": [
+    "node"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "client/bower_components",
+    "test",
+    "tests"
+  ]
+}

@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>chatterbox</title>
+    <link rel="stylesheet" href="styles/styles.css">
+
+    <!-- dependencies -->
+<!--     // <script src="bower_components/jquery/jquery.min.js"></script> NB: Script was throwing errors and is now replaced with a full copy of jquery 2.0.3. -ASA-->
+    <!--<script src="../bower_components/underscore/underscore.js"></script> NB: Script was throwing errors and is now replaced with a full copy of underscore 1.8.3. -ASA-->
+    <script src="../lib/jquery.js"></script>
+    <script src="../lib/Underscore1.8.3.js"></script>
+    <!-- your scripts-->
+    <script src="env/config.js"></script>
+    <script src="scripts/app.js"></script>
+  </head>
+  <body>
+    <div id="main">
+      <h1>chatterbox</h1>
+      <div class="chats"></div>
+      <form class="chatform" action=" " method="publish">
+      <textarea class="chatArea" name="comment" placeholder="chat message "></textarea>  
+      <input class="chatbutton" type="button" onclick="app.addMessage("hello")" value="submit!">
+       <form class = "refreshfeed">
+      <input class = "refreshbutton" type="button" onClick="app.fetch(window.selections.selectedRoom)" value="Update Chat Feed">
+      </form>
+      <form class = "loginAsNewUser">
+      <input class = "startOverButton" type="button" onClick="history.go(0)";"app.fetch()" value="Login as New User">
+      </form>
+    </div>
+    <div id ="chats">
+
+    </form>
+      
+    <!-- <button>sample</button> -->
+
+    </div>
+  </body>
+</html>
