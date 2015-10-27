@@ -39,18 +39,21 @@ exports.requestHandler = function(request, response) {
     // The outgoing status.
     var statusCode = 200;
 
+
     // See the note below about CORS headers.
     var headers = exports.defaultCorsHeaders;
 
-    // Tell the client we are sending them plain text.
-    //
+    // Tell the client we are sending them plain text.//changed.
     // You will need to change this if you are sending something
     // other than plain text, like JSON or HTML.
-    headers['Content-Type'] = "text/plain";
+    headers['contentType'] = "application/json";
 
     // .writeHead() writes to the request line and headers of the response,
     // which includes the status and all headers.
     response.writeHead(statusCode, headers);
+
+    response.write(JSON.parse(body));
+    response.write(JSON.parse(body));
 
     // Make sure to always call response.end() - Node may not send
     // anything back to the client until you do. The string you pass to
@@ -59,7 +62,7 @@ exports.requestHandler = function(request, response) {
     //
     // Calling .end "flushes" the response's internal buffer, forcing
     // node to actually send all the data over to the client.
-    response.end("Hello, World!");
+    response.end();
   };
 // console.log(exports.requestHandler);
 // These headers will allow Cross-Origin Resource Sharing (CORS).
@@ -77,4 +80,9 @@ exports.requestHandler = function(request, response) {
     "access-control-allow-headers": "content-type, accept",
     "access-control-max-age": 10 // Seconds.
   };
+
+//NEXT STEPS BRAINSTORM: 
+//  make an event listener - if server receives GET requst, then it parses it, 
+
+
 
