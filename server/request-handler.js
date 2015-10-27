@@ -51,9 +51,15 @@ exports.requestHandler = function(request, response) {
     // .writeHead() writes to the request line and headers of the response,
     // which includes the status and all headers.
     response.writeHead(statusCode, headers);
+    
+    // for (key in response) {
+    console.log('response.data is:',response.data);
+    // };
 
-    response.write(JSON.parse(body));
-    response.write(JSON.parse(body));
+
+
+    response.write('here is lots of data');
+    //response.write(JSON.parse(body));
 
     // Make sure to always call response.end() - Node may not send
     // anything back to the client until you do. The string you pass to
@@ -62,7 +68,7 @@ exports.requestHandler = function(request, response) {
     //
     // Calling .end "flushes" the response's internal buffer, forcing
     // node to actually send all the data over to the client.
-    response.end();
+    response.end('something else');
   };
 // console.log(exports.requestHandler);
 // These headers will allow Cross-Origin Resource Sharing (CORS).
