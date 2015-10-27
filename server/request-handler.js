@@ -15,7 +15,7 @@ this file and include it in basic-server.js so that it actually works.
 //here is a change
 
 
-var _ = require('../node_modules/underscore');
+var _ = require('underscore');
 
 var exports = module.exports = {};
 
@@ -50,15 +50,59 @@ exports.requestHandler = function(request, response) {
 
     // .writeHead() writes to the request line and headers of the response,
     // which includes the status and all headers.
-    response.writeHead(statusCode, headers);
+    // response.writeHead(statusCode, headers);
     
     // for (key in response) {
-    console.log('response.data is:',response.data);
+    // console.log('response is:',response.key);
     // };
 
+    //created an object 
+    var data = {
+        //gave it an array called results
+        results : [],
+    };
+
+    // var obj = {
+    //     username: ''  
+    // }
 
 
-    response.write('here is lots of data');
+    if (request.method === 'GET') {
+        response.writeHead(statusCode, headers);        
+        // response.write(JSON.stringify(data));
+        response.end(JSON.stringify(data));
+    } else if (request.method === 'POST'){
+
+        console.log('request.json iisssssssssss:', request);
+        //push post data into end:
+        data.results.push(request.json);
+        //modify data as requested
+        //update the stored value of the data
+        response.writeHead(201, headers);
+        response.end(JSON.stringify(data));
+    }
+    // if (request.method === 'PUT') { //
+    //     response.writeHead(statusCode, headers);  
+    //     console.log('Server says: "Data update request received and processed."')
+    //     response.end()
+    // if (request.method === 'POST') {
+    //     response.writeHead(statusCode, headers);        
+    //     response.end()
+
+
+
+
+    // } else if (request.method === 'DELETE') {
+    //     response.writeHead(statusCode, headers);        
+    //     response.end()
+
+    // } else if (request.method === 'OPTIONS') {
+    //     response.writeHead(statusCode, headers);
+    //     response.end()
+
+    // } else {
+
+        // response.write('here is lots of data');
     //response.write(JSON.parse(body));
 
     // Make sure to always call response.end() - Node may not send
@@ -68,7 +112,8 @@ exports.requestHandler = function(request, response) {
     //
     // Calling .end "flushes" the response's internal buffer, forcing
     // node to actually send all the data over to the client.
-    response.end('something else');
+        // response.end('something else');
+
   };
 // console.log(exports.requestHandler);
 // These headers will allow Cross-Origin Resource Sharing (CORS).
