@@ -12,7 +12,7 @@ exports.requestHandler = function(request, response) {
     var statusCode = 200;
 
 
-    // See the note below about CORS headers.
+    // See the note below about CORS headers
     var headers = exports.defaultCorsHeaders;
 
     headers['contentType'] = "application/json";
